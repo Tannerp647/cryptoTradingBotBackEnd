@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=crypto-trading-bot
+    volumes:
+      - crypto-trading-bot:${DOCKER_DATABASE_VOLUME:-/var/lib/postgresql/data}
+    env_file:
+      - ../.env
+    ports:
+      - '${DB_PORT:-5432}:5432'
+volumes:
+  crypto-trading-bot:
