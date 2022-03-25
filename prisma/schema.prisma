@@ -1,13 +1,17 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+
+
 generator client {
   provider = "prisma-client-js"
 }
 
+
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("DATABASE_URL") 
+  //you dont put the actual url here because if you commit this to a repo then the publiic has access to the database directly
 }
 
 model User {
@@ -18,5 +22,11 @@ model User {
   userName String
   age Int
   password String
+  
+
+  // relational models => user User @relation(fields: [userId], references:[id])
+  // relations models => course Course @relation(fields; [courseId], references [id])
 }
+
+
 
