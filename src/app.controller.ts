@@ -22,7 +22,7 @@ export class AppController {
       firstName: string;
       lastName: string;
       userName: string;
-      age: number;
+      //age: number;
       password: string;
     },
   ): Promise<UserModel> {
